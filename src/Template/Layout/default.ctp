@@ -27,8 +27,8 @@
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
     -->
-    <?= $this->Html->css('bootstrap.css') ?>
-    <?= $this->Html->css('bootstrap-theme.css') ?>
+    <?= $this->Html->css('bootstrap.min.css') ?>
+    <?= $this->Html->css('bootstrap-theme.min.css') ?>
     <?= $this->Html->css('event-scheduler.css') ?>
 
     <?= $this->fetch('meta') ?>
@@ -37,13 +37,13 @@
 </head>
 <body>
 <?= $this->element('Layout/admin-menu') ?>
-<div id="container">
+<div class="container theme-showcase" role="main">
 
     <?= $this->Flash->render() ?>
 
     <?= $this->fetch('content') ?>
 </div>
-<?= $this->Html->script('bootstrap.min.js') ?>
 <?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js') ?>
+<?= $this->Html->script('bootstrap.min.js') ?>
 </body>
 </html>

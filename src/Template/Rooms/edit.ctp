@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-lg-2 col-md-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
@@ -12,7 +12,7 @@
         <li><?= $this->Html->link(__('New Event'), ['controller' => 'Events', 'action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="rooms form large-10 medium-9 columns">
+<div class="rooms form col-lg-10 col-md-9 columns">
     <?= $this->Form->create($room) ?>
     <fieldset>
         <legend><?= __('Edit Room') ?></legend>

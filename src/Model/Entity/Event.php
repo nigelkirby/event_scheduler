@@ -10,7 +10,7 @@ use Cake\View\Helper\TimeHelper;
 class Event extends Entity
 {
 
-    protected $_virtual = ['string_date'];
+    protected $_virtual = ['string_date','time_span'];
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *

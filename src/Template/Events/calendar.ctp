@@ -1,6 +1,5 @@
-<?php $this->layout = 'bootstrap'; ?>
-<div class="events index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+<div class="events index col-lg-10 col-md-9 columns">
+    <table class="table">
     <thead>
         <tr>
             <th><?= __('Time') ?></th>

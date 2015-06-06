@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns col-lg-2 col-md-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit Event'), ['action' => 'edit', $event->id]) ?> </li>
@@ -11,7 +11,7 @@
         <li><?= $this->Html->link(__('New Room'), ['controller' => 'Rooms', 'action' => 'add']) ?> </li>
     </ul>
 </div>
-<div class="events view large-10 medium-9 columns">
+<div class="events view col-lg-10 col-md-9 columns">
     <h2><?= h($event->title) ?></h2>
     <div class="row">
         <div class="large-5 columns strings">
@@ -22,13 +22,13 @@
             <h6 class="subheader"><?= __('Room') ?></h6>
             <p><?= $event->has('room') ? $this->Html->link($event->room->name, ['controller' => 'Rooms', 'action' => 'view', $event->room->id]) : '' ?></p>
         </div>
-        <div class="large-2 columns numbers end">
+        <div class="col-lg-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
             <p><?= $this->Number->format($event->id) ?></p>
             <h6 class="subheader"><?= __('Modified') ?></h6>
             <p><?= h($event->modified) ?></p>
         </div>
-        <div class="large-2 columns dates end">
+        <div class="col-lg-2 columns dates end">
             <h6 class="subheader"><?= __('Date') ?></h6>
             <p><?= h($event->date) ?></p>
             <h6 class="subheader"><?= __('Start Time') ?></h6>
