@@ -21,9 +21,14 @@
             <td><?= h($contact->email) ?></td>
             <td><?= h($contact->phone) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $contact->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $contact->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $contact->id], ['confirm' => __('Are you sure you want to delete # {0}?', $contact->id)]) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $contact->id],['class' => 'btn btn-sm btn-primary']) ?>
+                <?= $this->Form->postLink(__('Delete'),
+                    [
+                        'action' => 'delete', $contact->id
+                    ], [
+                        'confirm' => __('Are you sure you want to delete # {0}?', $contact->id),
+                        'class' => 'btn btn-sm btn-primary'
+                    ]) ?>
             </td>
         </tr>
 

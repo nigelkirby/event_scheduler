@@ -30,8 +30,8 @@ class Event extends Entity
 
     protected function _getTimeSpan()
     {
-        $start_formatted = $this->_properties['start_time']->format('h:m a');
-        $end_formatted = $this->_properties['end_time']->format('h:m a');
+        $start_formatted = $this->_properties['start_time']->format('h:i a');
+        $end_formatted = $this->_properties['end_time']->format('h:i a');
         return $start_formatted . " - " . $end_formatted;
 
     }

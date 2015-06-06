@@ -120,7 +120,8 @@ class EventsController extends AppController
         $query = $this->Events->find('Calendar');
 
         $data = $query->all();
-        $eventsByDay = $data->groupBy('string_date');
+        $eventsByDay = $data
+            ->groupBy('string_date');
 
         $this->set('events', $eventsByDay);
     }
