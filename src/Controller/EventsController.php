@@ -13,6 +13,11 @@ use App\Model\Table\EventsTable;
 class EventsController extends AppController
 {
 
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+    }
     /**
      * Index method
      *
@@ -90,6 +95,8 @@ class EventsController extends AppController
         }
         $contacts = $this->Events->Contacts->find('list', ['limit' => 200]);
         $rooms = $this->Events->Rooms->find('list', ['limit' => 200]);
+
+
         $this->set(compact('event', 'contacts', 'rooms'));
         $this->set('_serialize', ['event']);
     }
@@ -115,6 +122,7 @@ class EventsController extends AppController
 
     public function calendar()
     {
+        $this->layout = 'angular';
         $this->paginate = [
             'contain' => ['Contacts', 'Rooms']
         ];
@@ -125,5 +133,6 @@ class EventsController extends AppController
             ->groupBy('string_date');
 
         $this->set('events', $eventsByDay);
+        $this->set('_serialize', ['events']);
     }
 }

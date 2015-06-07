@@ -15,7 +15,7 @@
 
 ?>
 <!DOCTYPE html>
-<html>
+<html ng-app="calendar">
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +30,10 @@
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('bootstrap-theme.min.css') ?>
     <?= $this->Html->css('event-scheduler.css') ?>
+    <?= $this->Html->script('angular.min.js') ?>
+    <?= $this->Html->script('ui-bootstrap.min.js') ?>
+    <?= $this->Html->script('calendar.js') ?>
+    <?= $this->Html->script('modal-confirm.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>

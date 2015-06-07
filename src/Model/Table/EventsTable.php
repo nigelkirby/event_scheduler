@@ -90,6 +90,7 @@ class EventsTable extends Table
     public function findCalendar(Query $query, array $options)
     {
         return $query
+            ->order('date')
             ->order('start_time')
             ->order('end_time')
             ->contain(['Rooms','Contacts']);
