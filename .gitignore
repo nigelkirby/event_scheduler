@@ -2,3 +2,7 @@
 /config/app.php
 /tmp/*
 /logs/*
+/.idea/*
+.gitattributes
+phpunit.xml.dist
+composer.lock
