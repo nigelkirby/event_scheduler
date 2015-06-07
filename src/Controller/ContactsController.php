@@ -18,6 +18,8 @@ class ContactsController extends AppController
      */
     public function index()
     {
+        $this->paginate = ['sortWhitelist' => ['id','first_name','last_name']];
+
         $this->set('contacts', $this->paginate($this->Contacts));
         $this->set('_serialize', ['contacts']);
     }

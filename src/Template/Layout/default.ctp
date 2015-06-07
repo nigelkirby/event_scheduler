@@ -45,5 +45,6 @@
 </div>
 <?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js') ?>
 <?= $this->Html->script('bootstrap.min.js') ?>
+<?= $this->Html->script('angular.min.js') ?>
 </body>
 </html>

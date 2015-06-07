@@ -8,8 +8,8 @@
         <tr>
             <th><?= $this->Paginator->sort('last_name') ?></th>
             <th><?= $this->Paginator->sort('first_name') ?></th>
-            <th><?= $this->Paginator->sort('email') ?></th>
-            <th><?= $this->Paginator->sort('phone') ?></th>
+            <th><?= __('Email') ?></th>
+            <th><?= __('Phone') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
