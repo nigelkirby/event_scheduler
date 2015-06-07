@@ -17,13 +17,12 @@
             <th><?= __('Event Name') ?></th>
             <th><?= __('Room') ?></th>
             <th><?= __('Contact') ?></th>
-            <th></th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($events as $day => $events_grouped): ?>
             <tr class="active">
-                <td colspan="5"><?= $day ?></td>
+                <td colspan="4"><?= $day ?></td>
             </tr>
             <?php foreach ($events_grouped as $event): ?>
 
@@ -34,7 +33,6 @@
                         ]) ?></td>
                     <td><?= isset($event->room->name) ? h($event->room->name) : '' ?></td>
                     <td><?= isset($event->contact->full_name_email) ? $event->contact->full_name_email : '' ?></td>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
                 </tr>
             <?php endforeach; ?>
         <?php endforeach; ?>
