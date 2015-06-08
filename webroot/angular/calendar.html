@@ -1,0 +1,20 @@
+<tbody ng-controller="CalendarController as cal" ng-init="cal.buildCalendar()" ng-repeat="day in cal.eventsByDay">
+<tr class="active">
+    <td colspan="5"></td>
+</tr>
+
+<tr ng-repeat="event in day">
+    <td>{{event.time_span}}</td>
+    <td>{{event.title}}</td>
+    <td>{{event.room.name}}</td>
+    <td>{{event.contact.full_name_email}}</td>
+    <td>
+        <a href ng-click="">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+        <a href ng-click="confirmClick()" confirm-click>
+            <span class="glyphicon glyphicon-trash"></span>
+        </a>
+    </td>
+</tr>
+</tbody>

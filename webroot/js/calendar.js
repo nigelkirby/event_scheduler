@@ -8,7 +8,8 @@
     app.controller('CalendarController', ['$http', function ($http) {
         var cal = this;
 
-        this.edit = function (id) {
+        this.edit = function (id)
+        {
             $http.get('edit/' + id + '.json').
                 success(function (data, status, headers, config) {
                     var event = data.event;
@@ -17,11 +18,13 @@
                 });
         };
 
-        this.remove = function (id) {
+        this.remove = function (id)
+        {
             cal.postDelete(id);
         };
 
-        this.postDelete = function (id) {
+        this.postDelete = function (id)
+        {
             $http.post('delete/' + id + '.json').
                 success(function (data, status, headers, config) {
                     var event = data.event;
@@ -30,6 +33,31 @@
                     console.log(status);
                     console.log(data);
                 });
-        }
+        };
+
+
+        this.buildCalendar = function ()
+        {
+
+            cal.eventsByDay = cal.fetchCalData();
+
+        };
+
+        this.fetchCalData = function ()
+        {
+            var ret_val = null;
+
+            $http.get('events/calendar.json').
+                success(function(data,status,headers,config){
+                    ret_val = data.events;
+                }).
+                error(function(){
+                    //message to user that calendar didn't load
+                });
+
+            return ret_val;
+        };
+
     }]);
+
 })();
