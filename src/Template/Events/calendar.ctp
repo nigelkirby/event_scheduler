@@ -7,8 +7,7 @@
     </p>
 </div>
 
-<div class="events index" ng-controller="CalendarController as cal">
-{{cal.title}}
+<div class="events index">
     <div></div>
     <table class="table">
         <thead>
@@ -17,7 +16,6 @@
             <th><?= __('Event Name') ?></th>
             <th><?= __('Room') ?></th>
             <th><?= __('Contact') ?></th>
-            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -34,14 +32,6 @@
                         ]) ?></td>
                     <td><?= isset($event->room->name) ? h($event->room->name) : '' ?></td>
                     <td><?= isset($event->contact->full_name_email) ? $event->contact->full_name_email : '' ?></td>
-                    <td>
-                        <a href ng-click="cal.edit(<?= $event->id ?>)">
-                            <span class="glyphicon glyphicon-pencil"></span>
-                        </a>
-                        <a href ng-click="confirmClick('hi','what') && cal.remove(<?= $event->id ?>)" confirm-click>
-                            <span class="glyphicon glyphicon-trash"></span>
-                        </a>
-                    </td>
                 </tr>
             <?php endforeach; ?>
         <?php endforeach; ?>

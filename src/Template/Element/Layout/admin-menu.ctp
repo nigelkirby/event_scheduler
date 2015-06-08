@@ -18,7 +18,7 @@
             </button>
             <?= $this->Html->link(
                 'Event Scheduler',
-                ['controller' => 'Events', 'action' => 'index'],
+                ['controller' => 'Events', 'action' => 'calendar'],
                 ['class' => 'navbar-brand']
             );
             ?>
