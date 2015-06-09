@@ -20,8 +20,8 @@
             <th></th>
         </tr>
         </thead>
-        <tbody ng-repeat="event in events" ng-init="events = cal.getEvents()">
-        <tr>
+        <tbody ng-repeat="event in events">
+        <tr ng-hide="cal.removed[event.id]">
             <td>{{event.time_span}}</td>
             <td>{{event.title}}</td>
             <td>{{event.room.name}}</td>
@@ -30,7 +30,10 @@
                 <a href ng-click="">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a>
-                <a href ng-click="confirmClick()" confirm-click>
+                <a href
+                   ng-click="confirmClick('cal.remove('+event.id+')',
+                    'Do you wish to delete the event titled: ' + event.title)"
+                   confirm-click>
                     <span class="glyphicon glyphicon-trash"></span>
                 </a>
             </td>
