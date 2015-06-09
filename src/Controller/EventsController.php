@@ -129,10 +129,26 @@ class EventsController extends AppController
         $query = $this->Events->find('Calendar');
 
         $data = $query->all();
+        $events = $data;
+
+        $this->set('events', $events);
+        $this->set('_serialize', ['events']);
+    }
+
+    public function published()
+    {
+        $this->layout = 'default';
+        $this->paginate = [
+            'contain' => ['Contacts', 'Rooms']
+        ];
+        $query = $this->Events->find('Calendar');
+
+        $data = $query->all();
         $eventsByDay = $data
             ->groupBy('string_date');
 
         $this->set('events', $eventsByDay);
         $this->set('_serialize', ['events']);
     }
+
 }

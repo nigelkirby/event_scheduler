@@ -1,5 +1,6 @@
-<div class="jumbotron">
+<div class="page-header">
     <h1>Schedule of Events</h1>
+
     <p>
         AGC's 97th Annual Convention<br/>
         March 9-11, 2016<br/>
@@ -7,7 +8,7 @@
     </p>
 </div>
 
-<div class="events index" ng-controller="CalendarController as cal" ng-init="cal.buildCalendar()">
+<div class="events index" ng-controller="CalCtrl as cal">
     <div></div>
     <table class="table">
         <thead>
@@ -19,6 +20,21 @@
             <th></th>
         </tr>
         </thead>
-        <ng-include src="'angular/test.html'"></ng-include>
+        <tbody ng-repeat="event in events" ng-init="events = cal.getEvents()">
+        <tr>
+            <td>{{event.time_span}}</td>
+            <td>{{event.title}}</td>
+            <td>{{event.room.name}}</td>
+            <td>{{event.contact.full_name}}</td>
+            <td>
+                <a href ng-click="">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+                <a href ng-click="confirmClick()" confirm-click>
+                    <span class="glyphicon glyphicon-trash"></span>
+                </a>
+            </td>
+        </tr>
+        </tbody>
     </table>
 </div>

@@ -18,7 +18,7 @@
             </button>
             <?= $this->Html->link(
                 'Event Scheduler',
-                ['controller' => 'Events', 'action' => 'index'],
+                ['controller' => 'Events', 'action' => 'published'],
                 ['class' => 'navbar-brand']
             );
             ?>
@@ -32,7 +32,7 @@
                         <li><?= $this->Html->link('add', ['controller' => 'Events', 'action' => 'add']) ?></li>
                         <li><?= $this->Html->link('manage', ['controller' => 'Events', 'action' => 'index']) ?></li>
                         <li class="divider"></li>
-                        <li><?= $this->Html->link('publish view', ['controller' => 'Events', 'action' => 'calendar']) ?></li>
+                        <li><?= $this->Html->link('calendar', ['controller' => 'Events', 'action' => 'calendar']) ?></li>
                     </ul>
                 </li>
                 <li class="dropdown">

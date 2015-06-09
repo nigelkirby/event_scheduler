@@ -3,61 +3,25 @@
  * Created by nikirby on 6/7/15.
  */
 (function () {
-    var app = angular.module('calendar', ['modal-confirm','ui.bootstrap']);
+    angular.module('calendar', ['modal-confirm', 'ui.bootstrap'])
+        .factory('EventService', ['$http', function ($http) {
+            var path = 'calendar.json';
 
-    app.controller('CalendarController', ['$http', function ($http) {
-        var cal = this;
+            return {
+                getEvents: function () {
+                    return $http.get(path)
+                        .then(function (result) {
+                            return result.data.events;
+                        });
+                }
 
-        this.edit = function (id)
-        {
-            $http.get('edit/' + id + '.json').
-                success(function (data, status, headers, config) {
-                    var event = data.event;
-                }).
-                error(function (data, status, headers, config) {
-                });
-        };
+            }
+        }])
 
-        this.remove = function (id)
-        {
-            cal.postDelete(id);
-        };
-
-        this.postDelete = function (id)
-        {
-            $http.post('delete/' + id + '.json').
-                success(function (data, status, headers, config) {
-                    var event = data.event;
-                }).
-                error(function (data, status, headers, config) {
-                    console.log(status);
-                    console.log(data);
-                });
-        };
-
-
-        this.buildCalendar = function ()
-        {
-
-            cal.eventsByDay = cal.fetchCalData();
-
-        };
-
-        this.fetchCalData = function ()
-        {
-            var ret_val = null;
-
-            $http.get('events/calendar.json').
-                success(function(data,status,headers,config){
-                    ret_val = data.events;
-                }).
-                error(function(){
-                    //message to user that calendar didn't load
-                });
-
-            return ret_val;
-        };
-
-    }]);
+        .controller('CalCtrl', ['EventService','$scope','$http', function (EventService, $scope, $http) {
+            EventService.getEvents().then(function (events) {
+                $scope.events = events;
+            });
+        }]);
 
 })();
