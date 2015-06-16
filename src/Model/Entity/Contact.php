@@ -9,7 +9,10 @@ use Cake\ORM\Entity;
 class Contact extends Entity
 {
 
-    protected $_virtual = ['full_name', 'full_name_email'];
+    protected $_virtual = [
+        'full_name',
+        'full_name_email'
+    ];
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -31,10 +34,10 @@ class Contact extends Entity
 
     protected function _getFullNameEmail()
     {
-        if(is_null($this->_properties['email'])) {
+        if (is_null($this->_properties['email'])) {
             return $this->_properties['full_name'];
         }
 
         return '<a href="mailto:' . $this->_properties['email'] . '">' . $this->_getFullName() . '</a>';
-     }
+    }
 }

@@ -27,7 +27,7 @@
             <td>{{event.room.name}}</td>
             <td>{{event.contact.full_name}}</td>
             <td>
-                <a href ng-click="">
+                <a href ng-click="cal.edit(event.id)">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a>
                 <a href
@@ -35,6 +35,17 @@
                     'Do you wish to delete the event titled: ' + event.title)"
                    confirm-click>
                     <span class="glyphicon glyphicon-trash"></span>
+                </a>
+            </td>
+        </tr>
+        <tr ng-show="cal.edit[event.id]">
+            <td>{{event.time_span}}</td>
+            <td><input type="text" ng-model="event.title" value="{{event.title}}"/></td>
+            <td>{{event.room.name}}</td>
+            <td>{{event.contact.full_name}}</td>
+            <td>
+                <a href ng-click="cal.save(event)">
+                    <span class="glyphicon glyphicon-check"></span>
                 </a>
             </td>
         </tr>
